@@ -11,7 +11,7 @@ function changePriority(todo, priority) {
     todo.priority = priority;
 }
 
-function createProject(name, todoList) {
+function createProject(name, todoList = []) {
     const id = name.replace(/\s/g, "")
     return {name, todoList, id};
 }

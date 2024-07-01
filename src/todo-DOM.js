@@ -1,8 +1,11 @@
 function loadDisplay(projectList) {
+    const projects = document.querySelector('div#projects');
+    projects.innerHTML = '';
     projectList.forEach(targetProject => {
         createProjectDiv(targetProject);
         createHeader(targetProject);
         createContent(targetProject);
+        addTodoButton(targetProject);
     });
 }
 
@@ -35,4 +38,13 @@ function createContent(targetProject) {
     })
 }
 
-export { loadDisplay, createProjectDiv, createContent };
+function addTodoButton(targetProject) {
+    const todo = document.createElement('p');
+    todo.classList.add('create-todo');
+    todo.setAttribute("id", targetProject.id);
+    todo.textContent = '+ Add Task';
+    const projectDiv = document.querySelector('.' + targetProject.id);
+    projectDiv.appendChild(todo);
+}
+
+export { loadDisplay, createProjectDiv, createContent, addTodoButton };

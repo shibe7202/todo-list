@@ -6,6 +6,37 @@
     <title>Document</title>
 </head>
 <body>
+    <button class="create-project">New Project</button>
     <div id="projects"></div>
+    <dialog id="project-dialog">
+        <form action="" method="post">
+            <div class="form-row">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name">
+            </div>
+            <input type="submit" id="close-form" value="Create">
+        </form>
+    </dialog>
+    <dialog id="todo-dialog">
+        <form action="" method="post" id="todo-form">
+            <div class="form-row">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="form-row">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" name="description" id="description">
+            </div>
+            <div class="form-row">
+                <label for="due-date" class="form-label">Due date</label>
+                <input type="text" name="due-date" id="due-date">
+            </div>
+            <div class="form-row">
+                <label for="priority" class="form-label">Priority</label>
+                <input type="text" name="priority" id="priority">
+            </div>
+            <input type="submit" id="close-todo-form" value="Add Task">
+        </form>
+    </dialog>
 </body>
 </html>
