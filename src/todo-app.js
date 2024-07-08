@@ -1,6 +1,7 @@
 function createTodo(title, description, dueDate, priority) {
     let complete = false;
-    return { title, description, dueDate, priority, complete };
+    const id = title.replace(/\s/g, "")
+    return { title, description, dueDate, priority, complete, id };
 };
 
 function markComplete(todo) {

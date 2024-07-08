@@ -1,5 +1,6 @@
 import { createTodo, markComplete, changePriority, createProject } from './todo-app';
-import { loadDisplay, createContent, createProjectDiv, addTodoButton } from './todo-DOM';
+import { loadDisplay, createContent, createProjectDiv, addTodoButton, expandTodo } from './todo-DOM';
+import './style.css';
 
 const projectList = [];
 const todoList = [];
@@ -25,12 +26,12 @@ closeDialog.addEventListener('click', (event) => {
     const newProject = createProject(projectName);
     projectList.push(newProject);
     loadDisplay(projectList);
-    addTodo();
+    addTodo(newProject);
     event.preventDefault();
     newProjectDialog.close();
 })
 
-// Add todo to project using form handler
+// Add event listener to every 'Add Todo' Button. Process input with form.
 function addTodo() {
     let todoButtonsList = document.querySelectorAll('.create-todo');
     todoButtonsList.forEach((button) => {
@@ -59,9 +60,39 @@ function todoFormHandler(parentProject) {
         todoDialog.close();
         loadDisplay(projectList);
         addTodo();
+        expandTask()
     })    
+
+    /*
+    const todoDiv = document.querySelector(#newTodo.title);
+    todoDiv.addEventListener('click', () => {
+        expandTodo(todoDiv, newTodo);
+
+    }
+    */
 }
+
+// Add event listeners to expand todo and show all its information.
+function expandTask() {
+    let todoDivList = document.querySelectorAll('.todo-div');
+    todoDivList.forEach((todoDiv) => {
+        todoDiv.addEventListener('click', () => {
+            projectList.forEach((project) => {
+                let todo = project.todoList.find((todo) => todo.id === todoDiv.id);
+                console.log(todoDiv.id);
+                console.log(project.todoList[0].id);
+                if (Boolean(todo)) {
+                    expandTodo(todoDiv, todo);
+                }
+            })
+        }, { once: true })
+    })
+}
+
+
+
 
 loadDisplay(projectList);
 addTodo();
+expandTask()
 

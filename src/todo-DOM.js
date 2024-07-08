@@ -26,16 +26,37 @@ function createHeader(targetProject) {
 
 function createContent(targetProject) {
     targetProject.todoList.forEach((todo) => {
+        const todoDiv = document.createElement("div");
+        todoDiv.setAttribute('id', todo.title);
+        todoDiv.classList.add('todo-div')
         const title = document.createElement("p")
         title.classList.add("title");
         title.textContent = todo.title;
         const dueDate = document.createElement("p");
         dueDate.classList.add('date');
         dueDate.textContent = todo.dueDate;
+        todoDiv.appendChild(title);
+        todoDiv.appendChild(dueDate);
         const projectDiv = document.querySelector('.' + targetProject.id);
-        projectDiv.appendChild(title);
-        projectDiv.appendChild(dueDate);
+        projectDiv.appendChild(todoDiv);
+
+        /*
+        todoDiv.addEventListener('click', () => {
+            expandTodo(todoDiv, todo)
+            
+        })*/
     })
+}
+
+function expandTodo(todoDiv, todo) {
+    const description = document.createElement('p');
+    description.classList.add('expand-todo');
+    description.innerText = 'Description: ' + todo.description;
+    todoDiv.appendChild(description);
+    const priority = document.createElement('p');
+    priority.classList.add('expand-todo');
+    priority.innerText = 'Priority: ' + todo.priority;
+    todoDiv.appendChild(priority);
 }
 
 function addTodoButton(targetProject) {
@@ -47,4 +68,4 @@ function addTodoButton(targetProject) {
     projectDiv.appendChild(todo);
 }
 
-export { loadDisplay, createProjectDiv, createContent, addTodoButton };
+export { loadDisplay, createProjectDiv, createContent, addTodoButton, expandTodo };
