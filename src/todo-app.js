@@ -4,6 +4,10 @@ function createTodo(title, description, dueDate, priority) {
     return { title, description, dueDate, priority, complete, id };
 };
 
+function updateID(todo) {
+    todo.id = todo.title.replace(/\s/g, "")
+}
+
 function markComplete(todo) {
     todo.complete = true;
 }
@@ -17,4 +21,4 @@ function createProject(name, todoList = []) {
     return {name, todoList, id};
 }
 
-export { createTodo, markComplete, changePriority, createProject }
+export { createTodo, markComplete, changePriority, createProject, updateID }
