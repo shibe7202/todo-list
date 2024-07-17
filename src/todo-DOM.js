@@ -56,6 +56,10 @@ function expandTodoDOM(todoDiv, todo) {
     edit.setAttribute('id', 'edit-' + todo.id);
     edit.innerText = 'Edit';
     todoDiv.appendChild(edit);
+    const erase = document.createElement('button');
+    erase.setAttribute('id', 'erase-' + todo.id);
+    erase.innerText = 'Erase';
+    todoDiv.appendChild(erase);
 
 }
 

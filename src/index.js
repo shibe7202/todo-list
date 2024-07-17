@@ -75,6 +75,7 @@ function expandTodo() {
                 if (Boolean(todo)) {
                     expandTodoDOM(todoDiv, todo);
                     editTodo(todo);
+                    eraseTodo(todo);
                 }
             })
         }, { once: true })
@@ -113,7 +114,20 @@ function editFormHandler(todo) {
     })    
 }
 
-
+function eraseTodo(todo) {
+    let eraseButton = document.querySelector('#erase-' + todo.id);
+    eraseButton.addEventListener('click', () => {
+        projectList.forEach((project) => {
+            const index = project.todoList.indexOf(todo);
+            if (index >= 0) {
+                project.todoList.splice(index, 1);
+            }
+        })
+        loadDisplay(projectList);
+        addTodo();
+        expandTodo()
+    })
+}
 
 loadDisplay(projectList);
 addTodo();

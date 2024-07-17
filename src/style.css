@@ -3,15 +3,116 @@
 }
 
 html {
-    margin-left: 15%;
-    margin-right: 15%;
+    --button-color: #f04e4e;
+    min-height: 100vh;
 }
+
 body {
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: #e2e8f0;
+}
+
+#projects {
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 li {
     list-style-type: none;
+}
+
+div.container {
+    margin-left: 18.5%;
+    margin-right: 18.5%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background-color: white;
+    padding: 2% 2.8% 2% 2.8%;
+    min-height: 100vh;
+    border-radius: 1.5%;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+button {
+  background: var(--button-color);
+  border: 1px solid var(--button-color);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 16px;
+  outline: 0;
+  padding: 9px 11px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: var(--button-color);
+}
+
+button:active {
+  opacity: .5;
+}
+
+form > input[type="submit"] {
+    background: var(--button-color);
+    border: 1px solid var(--button-color);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 16px;
+    outline: 0;
+    padding: 7px 10px;
+    margin-top: 8px;
+}
+
+.todo-div > button {
+    padding: 3px 9px;
+    margin-left: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: #e2e8f0;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
+}
+
+.todo-div > button:hover,
+.todo-div > button:active {
+    color: #e2e8f0;
+}
+
+.todo-div > button + button {
+    margin-left: 8px;
+}
+
+.create-project {
+    margin-left: 3%;
+    margin-bottom: 6px;
 }
 
 .date {
@@ -24,6 +125,11 @@ li {
     border-top: 1px lightgray solid;
 }
 
+.todo-div {
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+
 .create-todo {
     padding-top: 15px;
 }
@@ -32,8 +138,4 @@ li {
     margin-left: 20px;
     font-size: 0.9rem;
     color: rgb(92, 115, 122);
-}
-
-#projects {
-    width: 90%;
 }
